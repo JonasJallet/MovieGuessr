@@ -11,8 +11,14 @@ class LocationController extends AbstractController
 
     public function questionsPage(): string
     {
-        $this->location = $this->show();
+         $locationChosen = $this->show();
+        if ($locationChosen == false) {
+            session_unset();
+            $locationChosen = $this->show();
+        }
+        $this->location = $locationChosen;
         $_SESSION['currentLocation'] = $this->location;
+        $_SESSION['locationPlayed'][] = $this->location['id'];
 
         $this->proposals = $this->showProposals($this->location);
 
@@ -22,7 +28,7 @@ class LocationController extends AbstractController
         ]);
     }
 
-    public function show(): array
+    public function show(): array|false
     {
         $locationManager = new LocationManager();
         $location = $locationManager->selectRandomLocation();

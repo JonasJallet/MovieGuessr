@@ -19,19 +19,13 @@ class LocationManager extends AbstractManager
         return (int)$this->pdo->lastInsertId();
     }
 
-    public function update(array $location): bool
+    public function selectRandomLocation(): array|false
     {
-        $statement = $this->pdo->prepare("UPDATE " . self::TABLE . " SET `title` = :title WHERE id=:id");
-        $statement->bindValue('id', $location['id'], PDO::PARAM_INT);
-        $statement->bindValue('movie_name', $location['movie_name'], PDO::PARAM_STR);
-        $statement->bindValue('scene_name', $location['scene_name'], PDO::PARAM_STR);
-        $statement->bindValue('url', $location['url'], PDO::PARAM_STR);
-        return $statement->execute();
-    }
-
-    public function selectRandomLocation(): array
-    {
-        $query = 'SELECT * FROM ' . static::TABLE . ' ORDER BY RAND() LIMIT 1';
+        $query = 'SELECT * FROM location';
+        if (isset($_SESSION['locationPlayed'])) {
+            $query .= ' WHERE id NOT IN (' . implode(", ", $_SESSION['locationPlayed']) . ')';
+        }
+        $query .= ' ORDER BY RAND() LIMIT 1;';
         return $this->pdo->query($query)->fetch();
     }
 
