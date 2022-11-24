@@ -1,6 +1,8 @@
 {% extends "layout.html.twig" %}
 
 {% block content %}
+	<iframe class="iframe" src="{{ location.url }}" loading="lazy"></iframe>
+
 	<div =class"container">
 		<form class="form" method="post" action="/result">
 			<div class="row">
@@ -16,4 +18,5 @@
 			</form>
 		</div>
 	</div>
+
 {% endblock %}

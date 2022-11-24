@@ -1,6 +1,18 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
-    <h1>Hello Wilder !</h1>
-    <p>Find a complete CRUD example on <a href="/locations">/locations</a> page.</p>
+
+	<header class="bd-header py-3 d-flex align-items-stretch">
+		<div id="menu" class="container-fluid d-flex align-items-center justify-content-end">
+			<a href="/docs/5.2/examples/cheatsheet-rtl/" class="mx-2">A Propos</a>|
+			<a href="/docs/5.2/examples/cheatsheet-rtl/" class="mx-2">Contact</a>
+		</div>
+	</header>
+
+	<main class="container">
+		<div class="row justify-content-center">
+			<h1 class="text-center">Movie Guessr</h1>
+			<a href="/questions" class="col-6 col-md-5 col-lg-4 col-xl-3 play btn btn-outline-light btn-lg ">Jouer</a>
+		</div>
+	</main>
 {% endblock %}
