@@ -7,4 +7,5 @@ return [
     'locations/edit' => ['LocationController', 'edit', ['id']],
     'locations/add' => ['LocationController', 'addLocation',],
     'locations/delete' => ['LocationController', 'delete',],
+    'result' => ['LocationController', 'resultPage']
 ];

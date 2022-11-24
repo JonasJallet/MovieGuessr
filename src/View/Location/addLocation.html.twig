@@ -1,7 +1,7 @@
 {% extends "layout.html.twig" %}
 
 {% block content %}
-	<form class="form m-3 p-3 border shadow w-50 m-auto mt-3 text-white fw-bold" method="post">
+	<form class="form m-3 p-3 border shadow w-50 m-auto mt-3 text-dark fw-bold" method="post">
 
 		<div class="mb-3">
 			<label for="userEmail" class="form-label d-flex justify-content-center">Movie name</label>
@@ -29,7 +29,7 @@
 		{% endif %}
 
 		<div class="mb-3 d-flex justify-content-center">
-			<button class="btn btn-light">Send</button>
+			<button class="btn btn-success">Send</button>
 		</div>
 	</form>
 
@@ -50,7 +50,7 @@
 
 			<h4 class="text-decoration-underline">Movie tag</h4>
 			<p>You must write the full title in snake_case (with underscore instead of space)<br>
-				You must avoid these characters : "'/,*-/<br>
+				You must avoid these characters ":/,*'-/<br>
 				For instance, for the movie "le fabuleux destin d'amélie poulain"<br>
 				Movie tag :  Le_fabuleux_destin_d_amelie_poulain
 			</p>
