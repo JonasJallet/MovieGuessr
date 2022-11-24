@@ -12,11 +12,9 @@ class LocationController extends AbstractController
     public function questionsPage(): string
     {
         $this->location = $this->show();
-        $this->proposals = $this->showProposals($this->location);
+        $_SESSION['currentLocation'] = $this->location;
 
-        if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['answer'])) {
-            $this->checkAnswers($this->location['movie_tag']);
-        }
+        $this->proposals = $this->showProposals($this->location);
 
         return $this->twig->render('Location/show.html.twig', [
             'location' => $this->location,
@@ -45,11 +43,22 @@ class LocationController extends AbstractController
         return $proposals;
     }
 
+    public function resultPage()
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['answer'])) {
+            $this->checkAnswers($_SESSION['currentLocation']['movie_tag']);
+        }
+        return $this->twig->render('Location/result.html.twig', [
+            'location' => $_SESSION['currentLocation'],
+            'correctAnswer' => $_SESSION['correctAnswer']
+        ]);
+    }
+
     public function checkAnswers(string $answer): void
     {
         if ($_POST['answer'] == $answer) {
-            header('Location: result?id=' . $this->location['id'] . '&result=1');
+            $_SESSION['correctAnswer'] = true;
         }
-        header('Location: result?id=' . $this->location['id'] . '&result=2');
+        $_SESSION['correctAnswer'] = false;
     }
 }

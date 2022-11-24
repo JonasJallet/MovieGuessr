@@ -1,0 +1,13 @@
+{% extends "layout.html.twig" %}
+
+{% block content %}
+
+	{% if correctAnswer == true %}
+		Correct answer !
+	{% else %}
+		False answer !
+	{% endif %}
+	{{ location.movie_name }}
+
+
+{% endblock %}
