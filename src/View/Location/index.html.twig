@@ -1,9 +1,0 @@
-{% extends 'layout.html.twig' %}
-
-{% block content %}
-
-	{% for location in locations %}
-		<iframe class="iframe" src="{{ location.url }}" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-	{% endfor %}
-
-{% endblock %}
