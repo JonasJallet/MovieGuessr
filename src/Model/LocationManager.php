@@ -31,10 +31,8 @@ class LocationManager extends AbstractManager
 
     public function selectRandomLocation(): array
     {
-        $query = "SELECT * FROM " . static::TABLE . " ORDER BY RAND() LIMIT 1";
-        $statement = $this->pdo->query($query);
-        $randomLocation = $statement->fetchAll();
-        return $randomLocation;
+        $query = 'SELECT * FROM ' . static::TABLE . ' ORDER BY RAND() LIMIT 1';
+        return $this->pdo->query($query)->fetch();
     }
 
     public function selectFalseproposals(string $answerTag): array
