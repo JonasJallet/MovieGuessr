@@ -2,7 +2,7 @@
 
 return [
     '' => ['HomeController', 'index',],
-    'questions' => ['LocationController', 'show'],
+    'questions' => ['LocationController', 'questionsPage'],
     'locations' => ['LocationController', 'index',],
     'locations/edit' => ['LocationController', 'edit', ['id']],
     'locations/add' => ['LocationController', 'add',],
