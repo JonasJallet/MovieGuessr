@@ -29,13 +29,12 @@ class LocationManager extends AbstractManager
         return $statement->execute();
     }
 
-    public function selectRandomLocation(string $orderBy = '', string $direction = 'ASC'): array
+    public function selectRandomLocation(): array
     {
-        $query = 'SELECT * FROM ' . static::TABLE . ' ORDER RAND() LIMIT 1';
-        if ($orderBy) {
-            $query .= ' ORDER BY ' . $orderBy . ' ' . $direction;
-        }
+        $query = "SELECT * FROM " . static::TABLE . " ORDER BY RAND() LIMIT 1";
+        $statement = $this->pdo->query($query);
+        $randomArtists = $statement->fetchAll();
 
-        return $this->pdo->query($query)->fetchAll();
+        return $randomArtists;
     }
 }
