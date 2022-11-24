@@ -1,22 +1,31 @@
 {% extends "layout.html.twig" %}
 
 {% block content %}
-	<iframe class="iframe" src="{{ location.url }}" loading="lazy"></iframe>
-
-	<div =class"container">
-		<form class="form" method="post" action="/result">
-			<div class="row">
-				{% for proposal in proposals %}
-					<div>
-						<input type="radio" required value={{proposal.movie_tag}} name="answer" id="{{proposal.movie_tag}}">
-						<label for="{{proposal.movie_tag}}">{{proposal.movie_name}}</label>
-					</div>
-				{% endfor %}
-				<div>
-					<button class="btn">Next</button>
-				</div>
-			</form>
-		</div>
+	<div class="popup-link showQuestion">
+		<a href="#popup3">Trouver la réponse</a>
 	</div>
 
-{% endblock %}
+	<!--popup3-->
+
+	<div id="popup3" class="popup-container popup-style-3">
+		<div class="popup-content showQuestions">
+			<a href="#" class="close">&times;</a>
+			<ul>
+				<form class="form formQuestion" method="post" action="/result">
+					<h2 class="logoTitle">Movie Guessr</h2>
+
+					{% for proposal in proposals %}
+						<div class="buttonGuessr">
+							<input type="radio" required value={{proposal.movie_tag}} name="answer" id="{{proposal.movie_tag}}">
+							<label class="questionGuessr" for="{{proposal.movie_tag}}">{{proposal.movie_name}}</label>
+						</div>
+					{% endfor %}
+
+					<button class="btn buttonGuessr">Envoyer</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+<iframe class="iframe" src="{{ location.url }}" loading="lazy"></iframe></main>{% endblock %}
