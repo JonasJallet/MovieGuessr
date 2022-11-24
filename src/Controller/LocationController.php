@@ -21,8 +21,9 @@ class LocationController extends AbstractController
     public function show(): array
     {
         $locationManager = new LocationManager();
-        $location = $locationManager->selectRandomLocation();
-        return $location;
+        $locations = $locationManager->selectRandomLocation();
+
+        return $this->twig->render('Location/show.html.twig', ['locations' => $locations]);
     }
 
     public function showProposals(string $answerTag, string $answerName, int $goodAnswerIndex): array
