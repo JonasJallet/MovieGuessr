@@ -33,8 +33,14 @@ class LocationManager extends AbstractManager
     {
         $query = "SELECT * FROM " . static::TABLE . " ORDER BY RAND() LIMIT 1";
         $statement = $this->pdo->query($query);
-        $randomArtists = $statement->fetchAll();
+        $randomLocation = $statement->fetchAll();
+        return $randomLocation;
+    }
 
-        return $randomArtists;
+    public function selectFalseproposals(string $answerTag): array
+    {
+        $query = "SELECT DISTINCT(movie_name) FROM location WHERE movie_tag != '" . $answerTag . "'
+        ORDER BY RAND() LIMIT 3";
+        return $this->pdo->query($query)->fetchAll();
     }
 }
