@@ -1,0 +1,80 @@
+{% extends "layout.html.twig" %}
+
+{% block content %}
+	<form class="form m-3 p-3 border shadow w-50 m-auto mt-3 text-white fw-bold" method="post">
+
+		<div class="mb-3">
+			<label for="userEmail" class="form-label d-flex justify-content-center">Movie name</label>
+			<input type="text" name="movieName" id="movieName" maxlenght="100" class="form-control">
+		</div>
+
+		<div class="mb-3">
+			<label for="userEmail" class="form-label d-flex justify-content-center">Movie tag</label>
+			<input type="text" name="movieTag" id="movieTag" maxlenght="100" class="form-control">
+		</div>
+
+		<div class="mb-3">
+			<label for="userPassword" class="form-label d-flex justify-content-center">Url of Google Street view</label>
+			<input type="text" name="url" id="url" maxlenght="100" class="form-control">
+		</div>
+
+		{% if errors is defined %}
+			<div class="text-danger">
+				<ul>
+					{% for error in errors %}
+						<li>{{error}}</li>
+					{% endfor %}
+				</ul>
+			</div>
+		{% endif %}
+
+		<div class="mb-3 d-flex justify-content-center">
+			<button class="btn btn-light">Send</button>
+		</div>
+	</form>
+
+	{% if thanks is defined %}
+		<p class="alert alert-success p-2 col-sm-10 col-md-8 col-lg-6 mx-auto mt-3 text-center">
+			{{ thanks }}
+		</p>
+	{% endif %}
+
+
+	<div class="w-75 bg-dark mt-3 m-auto text-white">
+		<h2 class="text-center">Add process</h2>
+
+		<div class="ps-3">
+			<h4 class="text-decoration-underline">Movie name</h4>
+			<p>You must write the original title in the langage of the country of origin.
+			</p>
+
+			<h4 class="text-decoration-underline">Movie tag</h4>
+			<p>You must write the full title in snake_case (with underscore instead of space)<br>
+				You must avoid these characters : "'/,*-/<br>
+				For instance, for the movie "le fabuleux destin d'amélie poulain"<br>
+				Movie tag :  Le_fabuleux_destin_d_amelie_poulain
+			</p>
+
+			<h4 class="text-decoration-underline">Url of Google Street view</h4>
+			<p>You must go to https://www.google.fr/maps<br>
+				Insert an adress in the search bar<br>
+				<img src="/assets/images/searchBar.JPG" class="processImage"><br>
+				<br>
+				Use the little man in the lower right corner<br>
+				<img src="/assets/images/littleMan.JPG" class="processImage"><br>
+				<br>
+				Place him in the right position on the map<br>
+				<img src="/assets/images/littleManNext.JPG" class="processImage"><br>
+				<br>
+				Click on the three small dots in the top left corner<br>
+				<img src="/assets/images/click3points.JPG" class="processImage"><br>
+				<br>
+				Copy the only the url link, and past it in the form<br>
+				<img src="/assets/images/url.JPG" class="processImage"><br>
+				<br>
+			</p>
+
+
+		</div>
+	</div>
+{% endblock %}

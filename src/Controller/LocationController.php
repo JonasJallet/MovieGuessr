@@ -67,15 +67,15 @@ class LocationController extends AbstractController
             }
 
             if (!empty($errors)) {
-                return $this->twig->render('Location/_addForm.html.twig', ['errors' => $errors]);
+                return $this->twig->render('Location/addLocation.html.twig', ['errors' => $errors]);
             } else {
                 $locationManager = new LocationManager();
                 $locationManager->insert($data);
                 $thanks = "Thank you for your contribution";
-                return $this->twig->render('Location/_addForm.html.twig', ['thanks' => $thanks]);
+                return $this->twig->render('Location/addLocation.html.twig', ['thanks' => $thanks]);
             }
         }
 
-        return $this->twig->render('Location/_addForm.html.twig');
+        return $this->twig->render('Location/addLocation.html.twig');
     }
 }
