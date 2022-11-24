@@ -5,6 +5,6 @@ return [
     'questions' => ['LocationController', 'questionsPage'],
     'locations' => ['LocationController', 'index',],
     'locations/edit' => ['LocationController', 'edit', ['id']],
-    'locations/add' => ['LocationController', 'add',],
+    'locations/add' => ['LocationController', 'addLocation',],
     'locations/delete' => ['LocationController', 'delete',],
 ];
