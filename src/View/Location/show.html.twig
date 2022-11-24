@@ -1,7 +1,39 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
+	<div class="popup-link showQuestion">
+		<a href="#popup3">Trouver la réponse</a>
+	</div>
 
-	<iframe class="iframe" src="{{ location.url }}" loading="lazy"></iframe>
+	<!--popup3-->
 
-{% endblock %}
+	<div id="popup3" class="popup-container popup-style-3">
+		<div class="popup-content showQuestions">
+			<a href="#" class="close">&times;</a>
+			<ul>
+				<form class="form formQuestion" method="post">
+					<h2 class="logoTitle">Movie Guessr</h2>
+					<div class="buttonGuessr">
+						<input hidden type="radio" value="Le seigneur des anneaux" name="answer" id="{{proposal.movie_tag}}">
+						<label class="questionGuessr" for="Le seigneur des anneaux">Le seigneur des anneaux</label>
+					</div>
+					<div class="buttonGuessr">
+						<input hidden type="radio" value="Le seigneur des anneaux" name="answer" id="{{proposal.movie_tag}}">
+						<label class="questionGuessr" for="Le seigneur des anneaux">Matrix</label>
+					</div>
+					<div class="buttonGuessr">
+						<input hidden type="radio" value="Le seigneur des anneaux" name="answer" id="{{proposal.movie_tag}}">
+						<label class="questionGuessr" for="Le seigneur des anneaux">Joker</label>
+					</div>
+					<div class="buttonGuessr">
+						<input hidden type="radio" value="Le seigneur des anneaux" name="answer" id="{{proposal.movie_tag}}">
+						<label class="questionGuessr" for="Le seigneur des anneaux">Shawshank Redemption</label>
+					</div>
+					<button class="btn buttonGuessr">Envoyer</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+<iframe class="iframe" src="{{ location.url }}" loading="lazy"></iframe></main>{% endblock %}
