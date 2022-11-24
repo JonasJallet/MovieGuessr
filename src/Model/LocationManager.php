@@ -37,7 +37,7 @@ class LocationManager extends AbstractManager
 
     public function selectFalseproposals(string $answerTag): array
     {
-        $query = "SELECT DISTINCT(movie_name) FROM location WHERE movie_tag != '" . $answerTag . "'
+        $query = "SELECT DISTINCT(movie_name), movie_tag FROM location WHERE movie_tag != '" . $answerTag . "'
         ORDER BY RAND() LIMIT 3";
         return $this->pdo->query($query)->fetchAll();
     }

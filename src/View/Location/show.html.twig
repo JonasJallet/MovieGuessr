@@ -1,12 +1,19 @@
-{% extends 'layout.html.twig' %}
+{% extends "layout.html.twig" %}
 
 {% block content %}
-    <h1>Item {{ item.title }}</h1>
-    <p>{{ item.id }}. {{ item.title }}</p>
-    <a href="/items/edit?id={{ item.id }}">Edit</a>
-    <form action="/items/delete" method="POST">
-        <input type="hidden" name="id" value="{{ item.id }}">
-        <button>Delete</button>
-    </form>
-    <a href="/items">Back</a>
+	<div =class"container">
+		<form class="form" method="post">
+			<div class="row">
+				{% for proposal in proposals %}
+					<div>
+						<input type="radio" required value={{proposal.movie_tag}} name="answer" id="{{proposal.movie_tag}}">
+						<label for="{{proposal.movie_tag}}">{{proposal.movie_name}}</label>
+					</div>
+				{% endfor %}
+				<div>
+					<button class="btn">Next</button>
+				</div>
+			</form>
+		</div>
+	</div>
 {% endblock %}

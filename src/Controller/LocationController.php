@@ -6,15 +6,21 @@ use App\Model\LocationManager;
 
 class LocationController extends AbstractController
 {
+    protected array $location;
+    protected array $proposals;
+
     public function questionsPage(): string
     {
-        $location = $this->show();
-        $goodAnswerIndex = rand(0, 3);
-        $proposals = $this->showProposals($location['movie_tag'], $location['movie_name'], $goodAnswerIndex);
+        $this->location = $this->show();
+        $this->proposals = $this->showProposals($this->location);
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['answer'])) {
+            $this->checkAnswers($this->location['movie_tag']);
+        }
 
         return $this->twig->render('Location/show.html.twig', [
-            'location' => $location,
-            'proposals' => $proposals,
+            'location' => $this->location,
+            'proposals' => $this->proposals,
         ]);
     }
 
@@ -25,15 +31,25 @@ class LocationController extends AbstractController
         return $location;
     }
 
-    public function showProposals(string $answerTag, string $answerName, int $goodAnswerIndex): array
+    public function showProposals(array $answer): array
     {
         $locationManager = new LocationManager();
-        $falseAnswers = $locationManager->selectFalseproposals($answerTag);
+        $falseAnswers = $locationManager->selectFalseproposals($answer['movie_tag']);
+        $goodAnswerIndex = rand(0, 3);
         $proposals = [];
         foreach ($falseAnswers as $falseAnswer) {
-            array_push($proposals, $falseAnswer['movie_name']);
+            array_push($proposals, $falseAnswer);
         }
-        array_splice($proposals, $goodAnswerIndex, 0, $answerName);
+        array_splice($proposals, $goodAnswerIndex, 0, [$answer]);
+
         return $proposals;
+    }
+
+    public function checkAnswers(string $answer): void
+    {
+        if ($_POST['answer'] == $answer) {
+            header('Location: result?id=' . $this->location['id'] . '&result=1');
+        }
+        header('Location: result?id=' . $this->location['id'] . '&result=2');
     }
 }
