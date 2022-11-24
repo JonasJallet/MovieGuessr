@@ -2,8 +2,6 @@
 
 {% block content %}
 
-	{% for location in locations %}
-		<iframe class="iframe" src="{{ location.url }}" loading="lazy"></iframe>
-	{% endfor %}
+	<iframe class="iframe" src="{{ location.url }}" loading="lazy"></iframe>
 
 {% endblock %}
