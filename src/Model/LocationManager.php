@@ -28,4 +28,14 @@ class LocationManager extends AbstractManager
         $statement->bindValue('url', $location['url'], PDO::PARAM_STR);
         return $statement->execute();
     }
+
+    public function selectRandomLocation(string $orderBy = '', string $direction = 'ASC'): array
+    {
+        $query = 'SELECT * FROM ' . static::TABLE . ' ORDER RAND() LIMIT 1';
+        if ($orderBy) {
+            $query .= ' ORDER BY ' . $orderBy . ' ' . $direction;
+        }
+
+        return $this->pdo->query($query)->fetchAll();
+    }
 }
