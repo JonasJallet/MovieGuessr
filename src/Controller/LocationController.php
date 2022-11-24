@@ -9,7 +9,7 @@ class LocationController extends AbstractController
     public function index(): string
     {
         $locationManager = new LocationManager();
-        $locations = $locationManager->selectAll('title');
+        $locations = $locationManager->selectAll();
 
         return $this->twig->render('Location/index.html.twig', ['locations' => $locations]);
     }
