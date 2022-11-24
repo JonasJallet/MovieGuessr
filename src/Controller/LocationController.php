@@ -6,34 +6,65 @@ use App\Model\LocationManager;
 
 class LocationController extends AbstractController
 {
+    protected array $location;
+    protected array $proposals;
+
     public function questionsPage(): string
     {
-        $location = $this->show();
-        $goodAnswerIndex = rand(0, 3);
-        $proposals = $this->showProposals($location['movie_tag'], $location['movie_name'], $goodAnswerIndex);
+         $locationChosen = $this->show();
+        if ($locationChosen == false) {
+            session_unset();
+            $locationChosen = $this->show();
+        }
+        $this->location = $locationChosen;
+        $_SESSION['currentLocation'] = $this->location;
+        $_SESSION['locationPlayed'][] = $this->location['id'];
+
+        $this->proposals = $this->showProposals($this->location);
 
         return $this->twig->render('Location/show.html.twig', [
-            'location' => $location,
-            'proposals' => $proposals,
+            'location' => $this->location,
+            'proposals' => $this->proposals,
         ]);
     }
 
-    public function show(): array
+    public function show(): array|false
     {
         $locationManager = new LocationManager();
         $location = $locationManager->selectRandomLocation();
         return $location;
     }
 
-    public function showProposals(string $answerTag, string $answerName, int $goodAnswerIndex): array
+    public function showProposals(array $answer): array
     {
         $locationManager = new LocationManager();
-        $falseAnswers = $locationManager->selectFalseproposals($answerTag);
+        $falseAnswers = $locationManager->selectFalseproposals($answer['movie_tag']);
+        $goodAnswerIndex = rand(0, 3);
         $proposals = [];
         foreach ($falseAnswers as $falseAnswer) {
-            array_push($proposals, $falseAnswer['movie_name']);
+            array_push($proposals, $falseAnswer);
         }
-        array_splice($proposals, $goodAnswerIndex, 0, $answerName);
+        array_splice($proposals, $goodAnswerIndex, 0, [$answer]);
+
         return $proposals;
+    }
+
+    public function resultPage()
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['answer'])) {
+            $this->checkAnswers($_SESSION['currentLocation']['movie_tag']);
+        }
+        return $this->twig->render('Location/result.html.twig', [
+            'location' => $_SESSION['currentLocation'],
+            'correctAnswer' => $_SESSION['correctAnswer']
+        ]);
+    }
+
+    public function checkAnswers(string $answer): void
+    {
+        if ($_POST['answer'] == $answer) {
+            $_SESSION['correctAnswer'] = true;
+        }
+        $_SESSION['correctAnswer'] = false;
     }
 }

@@ -1,7 +1,22 @@
-{% extends 'layout.html.twig' %}
+{% extends "layout.html.twig" %}
 
 {% block content %}
-
 	<iframe class="iframe" src="{{ location.url }}" loading="lazy"></iframe>
+
+	<div =class"container">
+		<form class="form" method="post" action="/result">
+			<div class="row">
+				{% for proposal in proposals %}
+					<div>
+						<input type="radio" required value={{proposal.movie_tag}} name="answer" id="{{proposal.movie_tag}}">
+						<label for="{{proposal.movie_tag}}">{{proposal.movie_name}}</label>
+					</div>
+				{% endfor %}
+				<div>
+					<button class="btn">Next</button>
+				</div>
+			</form>
+		</div>
+	</div>
 
 {% endblock %}
