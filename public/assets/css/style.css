@@ -20,6 +20,27 @@ body {
     overflow: hidden;
 }
 
+.iframeresult {
+    width: 100%;
+    height: 50vh;
+    padding: 0px;
+}
+
+.iframeresult2 {
+    width: 100%;
+    height: 45vh;
+    padding: 0px;
+}
+
+.map {
+    margin: 0px;
+}
+
+.moviecard,
+.poster {
+    height: 50vh;
+}
+
 #menu,
 #menu>a {
     color: white;
@@ -30,10 +51,24 @@ body {
 h1 {
     color: white;
     font-size: 78px;
+    font-weight: 800;
+    font-style: italic;
+}
+
+h2 {
+    font-weight: 800;
+}
+
+h3 {
+    padding: 10px;
+    font-weight: 800;
+    font-style: italic;
 }
 
 .play {
     font-size: 42px;
+    font-style: italic;
+    font-weight: 800;
 }
 
 .processImage {
@@ -173,8 +208,132 @@ h1 {
     left: 0;
 }
 
-label:focus {
-    color: red;
+.scene {
+    display: inline-block;
+    width: 100%;
+    height: 55vh;
+    perspective: 600px;
+}
+
+.card {
+    position: relative;
+    width: 100%;
+    height: 55vh;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transform-origin: center right;
+    transition: transform 1s;
+}
+
+.card.is-flipped {
+    transform: translateX(-100%) rotateY(-180deg);
+}
+
+.card__face {
+    position: absolute;
+    width: 100%;
+    height: 55vh;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    backface-visibility: hidden;
+}
+
+.card__face--front {
+    background: white;
+}
+
+.card__face--back {
+    background: slateblue;
+    transform: rotateY(180deg);
+    padding: 30px;
+}
+
+.logoHome {
+    width: 40%;
+    min-width: 250px;
+}
+
+.logoHomeDiv {
+    margin-top: 10%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.textHome {
+    margin-top: 10px;
+    text-align: center;
+    color: #fff;
+    font-size: 20px;
+}
+
+.buttonHome {
+    margin-top: 40px;
+    background-color: #29235C;
+    color: #fff;
+    border-style: none;
+    font-weight: 800;
+    font-style: italic;
+}
+
+.buttonHome:hover {
+    color: #29235C;
+}
+
+.addTitle {
+    margin-top: 50px;
+    padding-top: 30px;
+    color: #fff;
+    font-weight: 800;
+    font-style: italic;
+    font-size: 50px;
+}
+
+.addMain {
+    background-image: url("/assets/images/index.jpg");
+    background-attachment: fixed;
+}
+
+.addForm {
+    background-color: rgba(0, 0, 0, 0.696);
+}
+
+.labelForm {
+    color: #fff;
+}
+
+.addMainTitle {
+    padding-top: 30px;
+    color: #fff;
+    font-weight: 800;
+    font-style: italic;
+    font-size: 50px;
+}
+
+.addProcess {
+    background-color: rgba(0, 0, 0, 0.696);
+    padding-bottom: 50px;
+}
+
+.addProcessTitle {
+    font-style: italic;
+    margin-top: 30px;
+}
+
+.buttonFormAdd {
+    background-color: #29235C;
+    color: #fff;
+    border-style: none;
+    font-weight: 800;
+    font-style: italic;
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+.buttonFormAdd:hover {
+    background-color: #fff;
+    color: #29235C;
 }
 
 .logoHome {
