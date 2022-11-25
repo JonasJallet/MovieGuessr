@@ -77,7 +77,7 @@ h3 {
 }
 
 .showQuestions {
-    background-color: rgba(0, 0, 0, 0.705);
+    background-color: rgba(5, 1, 26, 0.705);
     margin: auto;
     padding: 20px;
     border: 1px solid #888;
@@ -119,12 +119,22 @@ h3 {
 }
 
 .buttonAnswer {
-    font: 800 24px;
+    font: 800 28px;
     border: 2px solid #fff;
     margin-top: 20px;
     margin-right: 30px;
-    color: #000;
+    color: #29235C;
     padding: 10px;
+    background-color: #fff;
+    font-weight: 800;
+    font-style: italic;
+    font-size: 24px;
+}
+
+.buttonAnswer:hover {
+    border: 2px solid #29235C;
+    color: #fff;
+    background-color: #29235C;
 }
 
 /* POP UP QUESTION */
@@ -146,6 +156,7 @@ h3 {
 
 .formQuestion {
     min-width: 300px;
+    margin-top: -40px;
 }
 
 .popup-container {
@@ -201,7 +212,6 @@ h3 {
 
 .popup-style-3 {
     right: 100%;
-
 }
 
 .popup-style-3:target {
