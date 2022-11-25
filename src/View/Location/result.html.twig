@@ -4,9 +4,16 @@
 
 	<div class="moviecard row col-12 justify-content-center m-0">
 		<div class="row col-12 p-0 d-md-none">
-			<div class="scene scene--card justify-content-center p-0">
-				<div class="card col-12">
+			<div class="scene scene--card justify-content-center flex-column p-0">
+				<div class="card col-12 border-0">
 					<div class="card__face card__face--front col-12">
+						{% if correctAnswer == true %}
+							<h3 class="text-success">Correct answer !</h3>
+						{% else %}
+							<h3 class="text-danger">False answer !
+								<a class="replay" href="/questions">Play Again</a>
+							</h3>
+						{% endif %}
 						<img class="poster" src="https://posters.waasabi.com/medias/158304668910.jpg" class="img-fluid rounded-start" alt="image artiste">
 					</div>
 					<div class="card__face card__face--back col-12">
@@ -29,7 +36,7 @@
 		</div>
 	</div>
 
-	<div class="map row col-12">
+	<div class="map row col-12 fixed-bottom">
 		<iframe class="iframeresult" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3018.644289273382!2d-73.92572788455836!3d40.83577623797085!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c2f43ab9c41e71%3A0xb77db4e14e29d997!2s1163%20Shakespeare%20Ave%2C%20The%20Bronx%2C%20NY%2010452%2C%20%C3%89tats-Unis!5e0!3m2!1sfr!2sfr!4v1669323115425!5m2!1sfr!2sfr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 	</div>
 
