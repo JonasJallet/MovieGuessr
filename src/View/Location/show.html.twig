@@ -1,12 +1,33 @@
-{% extends 'layout.html.twig' %}
+{% extends "layout.html.twig" %}
 
 {% block content %}
-    <h1>Item {{ item.title }}</h1>
-    <p>{{ item.id }}. {{ item.title }}</p>
-    <a href="/items/edit?id={{ item.id }}">Edit</a>
-    <form action="/items/delete" method="POST">
-        <input type="hidden" name="id" value="{{ item.id }}">
-        <button>Delete</button>
-    </form>
-    <a href="/items">Back</a>
+	<div class="popup-link">
+		<a href="/">
+			<img src="/assets/images/logo.svg">
+		</a>
+		<a class="showQuestion" href="#popup3">Guess the movie</a>
+	</div>
+
+	<!--popup3-->
+
+	<div id="popup3" class="popup-container popup-style-3">
+		<div class="popup-content showQuestions">
+			<a href="#" class="close">&times;</a>
+
+			<form class="form formQuestion" method="post" action="/result">
+				<h3 class="logoTitle">The movie is :</h3>
+				{% for proposal in proposals %}
+					<div class="buttonGuessr">
+						<input hidden type="radio" required value={{proposal.movie_tag}} name="answer" id="{{proposal.movie_tag}}">
+						<label class="questionGuessr w-100" for="{{proposal.movie_tag}}">{{proposal.movie_name}}</label>
+					</div>
+				{% endfor %}
+				<button class="buttonAnswer">Guess</button>
+			</form>
+		</div>
+	</div>
+	<iframe class="iframe" src="{{ location.url }}" loading="lazy"></iframe>
+{% endblock %}
+{% block javascript %}
+	<script src="/assets/js/quiz.js"></script>
 {% endblock %}
