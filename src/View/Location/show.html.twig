@@ -19,7 +19,7 @@
 
 					{% for proposal in proposals %}
 						<div class="buttonGuessr">
-							<input hidden type="checked" required value={{proposal.movie_tag}} name="answer" id="{{proposal.movie_tag}}">
+							<input hidden type="radio" required value={{proposal.movie_tag}} name="answer" id="{{proposal.movie_tag}}">
 							<label class="questionGuessr" for="{{proposal.movie_tag}}">{{proposal.movie_name}}</label>
 						</div>
 					{% endfor %}
@@ -30,4 +30,4 @@
 		</div>
 	</div>
 </div>
-<iframe class="iframe" src="{{ location.url }}" loading="lazy"></iframe></main>{% endblock %}
+<iframe class="iframe" src="{{ location.url }}" loading="lazy"></iframe></main></script>{% endblock %}
