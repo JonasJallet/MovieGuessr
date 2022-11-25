@@ -16,18 +16,18 @@
 
 			<form class="form formQuestion" method="post" action="/result">
 				<h3 class="logoTitle">The movie is :</h3>
-
 				{% for proposal in proposals %}
 					<div class="buttonGuessr">
-						<input type="radio" required value={{proposal.movie_tag}} name="answer" id="{{proposal.movie_tag}}">
+						<input hidden type="radio" required value={{proposal.movie_tag}} name="answer" id="{{proposal.movie_tag}}">
 						<label class="questionGuessr" for="{{proposal.movie_tag}}">{{proposal.movie_name}}</label>
 					</div>
 				{% endfor %}
-
 				<button class="buttonAnswer">Guess</button>
 			</form>
 		</div>
 	</div>
 	<iframe class="iframe" src="{{ location.url }}" loading="lazy"></iframe>
-</main>{% endblock %}{% block javascript %}
-<script src="/assets/js/quiz.js"></script>{% endblock %}
+{% endblock %}
+{% block javascript %}
+	<script src="/assets/js/quiz.js"></script>
+{% endblock %}
