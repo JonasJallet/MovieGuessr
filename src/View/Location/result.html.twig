@@ -14,32 +14,47 @@
 								<a class="replay" href="/questions">Play Again</a>
 							</h3>
 						{% endif %}
-						<img class="poster" id="image" src="https://posters.waasabi.com/medias/158304668910.jpg" class="img-fluid rounded-start" alt="image artiste">
+						<img id="image" class="poster img-fluid rounded-start">
 					</div>
 					<div class="card__face card__face--back col-12">
 						<h2>{{ location.movie_name }}</h2>
+						<div class="d-flex lead">
+							<p>Release Date : 
+							</p>
+							<p id="date"></p>
+						</div>
 						<p id="description"></p>
-						<p id="date"></p>
 					</div>
 				</div>
 			</div>
 		</div>
 
-		<div class="col-5 d-none d-md-block">
-			<img class="poster rounded pl-5" src="https://posters.waasabi.com/medias/158304668910.jpg" class="img-fluid rounded-start" alt="image artiste">
+		<div class="col-3 d-none d-md-block">
+			<img id="image2" class="poster rounded img-fluid">
 		</div>
-		<div class="col-7 d-flex flex-column d-none d-md-block">
+		<div class="col-6 d-flex flex-column d-none d-md-block">
 			{% if correctAnswer == true %}
 				<h3 class="text-success">Correct answer !</h3>
 			{% else %}
 				<h3 class="text-danger">False answer !</h3>
 			{% endif %}
 			<h2>{{ location.movie_name }}</h2>
+			<div class="d-flex lead">
+				<p>Release Date : 
+				</p>
+				<p id="date2"></p>
+			</div>
+			<p id="description2"></p>
+			<a href="/questions" class="btn btn-outline-dark btn-lg ">Play Again</a>
 		</div>
 	</div>
 
-	<div class="map row col-12 fixed-bottom">
+	<div class="map row col-12 fixed-bottom d-none d-md-block">
 		<iframe class="iframeresult" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3018.644289273382!2d-73.92572788455836!3d40.83577623797085!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c2f43ab9c41e71%3A0xb77db4e14e29d997!2s1163%20Shakespeare%20Ave%2C%20The%20Bronx%2C%20NY%2010452%2C%20%C3%89tats-Unis!5e0!3m2!1sfr!2sfr!4v1669323115425!5m2!1sfr!2sfr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+	</div>
+
+	<div class="map row col-12 fixed-bottom d-md-none">
+		<iframe class="iframeresult2" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3018.644289273382!2d-73.92572788455836!3d40.83577623797085!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c2f43ab9c41e71%3A0xb77db4e14e29d997!2s1163%20Shakespeare%20Ave%2C%20The%20Bronx%2C%20NY%2010452%2C%20%C3%89tats-Unis!5e0!3m2!1sfr!2sfr!4v1669323115425!5m2!1sfr!2sfr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 	</div>
 
 

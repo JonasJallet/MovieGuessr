@@ -2,6 +2,9 @@ function updateText(overview, picture, date) {
     document.getElementById('description').innerHTML = overview;
     document.getElementById('image').setAttribute('src', 'https://www.themoviedb.org/t/p/w300_and_h450_bestv2' + picture);
     document.getElementById('date').innerHTML = date;
+    document.getElementById('description2').innerHTML = overview;
+    document.getElementById('image2').setAttribute('src', 'https://www.themoviedb.org/t/p/w300_and_h450_bestv2' + picture);
+    document.getElementById('date2').innerHTML = date;
 }
 
 
