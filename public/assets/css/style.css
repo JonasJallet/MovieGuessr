@@ -103,7 +103,6 @@ h3 {
 }
 
 .questionGuessr {
-    color: #fff;
     margin: 10px;
 }
 
@@ -499,4 +498,8 @@ h3 {
     font-size: 34px;
     font-weight: 800;
     font-style: italic;
+    }
+
+.buttonQuiz {
+    color: #009FE3;
 }
