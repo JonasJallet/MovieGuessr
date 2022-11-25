@@ -19,7 +19,7 @@
 				{% for proposal in proposals %}
 					<div class="buttonGuessr">
 						<input hidden type="radio" required value={{proposal.movie_tag}} name="answer" id="{{proposal.movie_tag}}">
-						<label class="questionGuessr" for="{{proposal.movie_tag}}">{{proposal.movie_name}}</label>
+						<label class="questionGuessr w-100" for="{{proposal.movie_tag}}">{{proposal.movie_name}}</label>
 					</div>
 				{% endfor %}
 				<button class="buttonAnswer">Guess</button>
