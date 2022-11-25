@@ -13,21 +13,21 @@
 	<div id="popup3" class="popup-container popup-style-3">
 		<div class="popup-content showQuestions">
 			<a href="#" class="close">&times;</a>
-			<ul>
-				<form class="form formQuestion" method="post" action="/result">
-					<h3 class="logoTitle">The movie is :</h3>
 
-					{% for proposal in proposals %}
-						<div class="buttonGuessr">
-							<input hidden type="checked" required value={{proposal.movie_tag}} name="answer" id="{{proposal.movie_tag}}">
-							<label class="questionGuessr" for="{{proposal.movie_tag}}">{{proposal.movie_name}}</label>
-						</div>
-					{% endfor %}
+			<form class="form formQuestion" method="post" action="/result">
+				<h3 class="logoTitle">The movie is :</h3>
 
-					<button class="buttonAnswer">Guess</button>
-				</form>
-			</div>
+				{% for proposal in proposals %}
+					<div class="buttonGuessr">
+						<input type="radio" required value={{proposal.movie_tag}} name="answer" id="{{proposal.movie_tag}}">
+						<label class="questionGuessr" for="{{proposal.movie_tag}}">{{proposal.movie_name}}</label>
+					</div>
+				{% endfor %}
+
+				<button class="buttonAnswer">Guess</button>
+			</form>
 		</div>
 	</div>
-</div>
-<iframe class="iframe" src="{{ location.url }}" loading="lazy"></iframe></main>{% endblock %}
+	<iframe class="iframe" src="{{ location.url }}" loading="lazy"></iframe>
+</main>{% endblock %}{% block javascript %}
+<script src="/assets/js/quiz.js"></script>{% endblock %}

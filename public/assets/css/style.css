@@ -60,7 +60,6 @@ h1 {
 }
 
 .questionGuessr {
-    color: #fff;
     margin: 10px;
 }
 
@@ -164,4 +163,8 @@ h1 {
 
 label:focus {
     color: red;
+}
+
+.buttonQuiz {
+    color: orange;
 }
