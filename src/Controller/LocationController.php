@@ -9,6 +9,7 @@ class LocationController extends AbstractController
     protected array $location;
     protected array $proposals;
 
+    // PAGE QUESTIONS
     public function questionsPage(): string
     {
          $locationChosen = $this->show();
@@ -49,6 +50,7 @@ class LocationController extends AbstractController
         return $proposals;
     }
 
+    // PAGE RESULT
     public function resultPage()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['answer'])) {
@@ -64,7 +66,8 @@ class LocationController extends AbstractController
     {
         if ($_POST['answer'] == $answer) {
             $_SESSION['correctAnswer'] = true;
+        } else {
+            $_SESSION['correctAnswer'] = false;
         }
-        $_SESSION['correctAnswer'] = false;
     }
 }
