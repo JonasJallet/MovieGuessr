@@ -7,19 +7,23 @@
 			<div class="scene scene--card justify-content-center flex-column p-0">
 				<div class="card col-12 border-0">
 					<div class="card__face card__face--front col-12">
+						<p class="turnCard">></p>
 						{% if correctAnswer == true %}
-							<h3 class="text-success">Correct answer !</h3>
+							<h3 class="text-success answerText">Correct answer !
+								<img id="image" class="poster img-fluid rounded-start">
+								<a class="replay btnPlayAgain" href="/questions">Play Again</a>
+							</h3>
 						{% else %}
-							<h3 class="text-danger">False answer !
-								<a class="replay" href="/questions">Play Again</a>
+							<h3 class="text-danger answerText">False answer !
+								<img id="image" class="poster img-fluid rounded-start">
+								<a class="replay btnPlayAgain" href="/questions">Play Again</a>
 							</h3>
 						{% endif %}
-						<img id="image" class="poster img-fluid rounded-start">
 					</div>
 					<div class="card__face card__face--back col-12">
-						<h2>{{ location.movie_name }}</h2>
-						<div class="d-flex lead">
-							<p>Release Date : 
+						<h2 class="titleCard">{{ location.movie_name }}</h2>
+						<div class="dateCard">
+							<p>Release Date :
 							</p>
 							<p id="date"></p>
 						</div>
@@ -32,20 +36,20 @@
 		<div class="col-3 d-none d-md-block">
 			<img id="image2" class="poster rounded img-fluid">
 		</div>
-		<div class="col-6 d-flex flex-column d-none d-md-block">
+		<div class="col-7 d-flex flex-column d-none d-md-block">
+			<a href="/questions" class="btn btn-outline-dark btn-lg btnPlayAgainDesk">Play Again</a>
 			{% if correctAnswer == true %}
-				<h3 class="text-success">Correct answer !</h3>
+				<h3 class="text-success answerText">Correct answer !</h3>
 			{% else %}
-				<h3 class="text-danger">False answer !</h3>
+				<h3 class="text-danger answerText">False answer !</h3>
 			{% endif %}
-			<h2>{{ location.movie_name }}</h2>
+			<h2 class="movieNameCard">{{ location.movie_name }}</h2>
 			<div class="d-flex lead">
-				<p>Release Date : 
+				<p>Release Date :
 				</p>
 				<p id="date2"></p>
 			</div>
 			<p id="description2"></p>
-			<a href="/questions" class="btn btn-outline-dark btn-lg ">Play Again</a>
 		</div>
 	</div>
 

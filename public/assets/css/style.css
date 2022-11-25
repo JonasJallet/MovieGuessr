@@ -38,7 +38,8 @@ body {
 
 .moviecard,
 .poster {
-    height: 50vh;
+    margin-top: 10px;
+    height: 42vh;
 }
 
 #menu,
@@ -210,14 +211,14 @@ h3 {
 .scene {
     display: inline-block;
     width: 100%;
-    height: 55vh;
+    height: 60vh;
     perspective: 600px;
 }
 
 .card {
     position: relative;
     width: 100%;
-    height: 55vh;
+    height: 60vh;
     cursor: pointer;
     transform-style: preserve-3d;
     transform-origin: center right;
@@ -231,7 +232,7 @@ h3 {
 .card__face {
     position: absolute;
     width: 100%;
-    height: 55vh;
+    height: 60vh;
     color: white;
     text-align: center;
     font-weight: bold;
@@ -239,11 +240,11 @@ h3 {
 }
 
 .card__face--front {
-    background: white;
+    background: #0a062b;
 }
 
 .card__face--back {
-    background: slateblue;
+    background: #0a062b;
     transform: rotateY(180deg);
     padding: 30px;
 }
@@ -421,6 +422,83 @@ h3 {
     background-color: #fff;
     color: #29235C;
 }
+
+.answerText {
+    font-size: 40px;
+    margin-left: -10px;
+}
+
+.btnPlayAgain {
+    position: absolute;
+    background-color: #fff;
+    padding: 15px;
+    color: #29235C;
+    border-style: none;
+    font-weight: 800;
+    font-style: italic;
+    font-size: 20px;
+    margin-top: 20px;
+    text-decoration: none;
+    margin-left: -42%;
+    margin-top: 200px;
+}
+
+.btnPlayAgain:hover {
+    background-color: #29235C;
+    color: #fff;
+}
+
+.turnCard {
+    position: fixed;
+    color: #29235C;
+    font-size: 30px;
+    background-color: #fff;
+    border-radius: 100%;
+    width: 50px;
+    height: 50px;
+    margin-top: 50%;
+    margin-left: 85%;
+}
+
+.titleCard {
+    font-style: italic;
+    margin-top: 10px;
+    font-size: 28px;
+}
+
+.dateCard {
+    display: flex;
+    justify-content: center;
+}
+
+.btnPlayAgainDesk {
+    position: fixed;
+    background-color: #29235C;
+    padding: 15px;
+    color: #fff;
+    border-style: none;
+    font-weight: 800;
+    font-style: italic;
+    font-size: 20px;
+    margin-top: 10px;
+    text-decoration: none;
+    margin-top: 20px;
+    margin-left: 50%;
+}
+
+.btnPlayAgainDesk:hover {
+    background-color: #fff;
+    color: #29235C;
+    border-width: 1px;
+    border-color: #29235C;
+    border-style: solid;
+}
+
+.movieNameCard {
+    font-size: 34px;
+    font-weight: 800;
+    font-style: italic;
+    }
 
 .buttonQuiz {
     color: #009FE3;
