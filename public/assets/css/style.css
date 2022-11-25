@@ -103,7 +103,7 @@ h3 {
 }
 
 .questionGuessr {
-    margin: 10px;
+    padding: 10px;
     cursor: pointer;
 }
 
@@ -515,7 +515,7 @@ h3 {
 .buttonQuiz {
     color: #009FE3;
     background-color: white;
-    
+
 }
 
 .answerText {
