@@ -102,7 +102,6 @@ h3 {
 }
 
 .questionGuessr {
-    color: #fff;
     margin: 10px;
 }
 
@@ -421,4 +420,8 @@ h3 {
 .buttonFormAdd:hover {
     background-color: #fff;
     color: #29235C;
+}
+
+.buttonQuiz {
+    color: #009FE3;
 }
