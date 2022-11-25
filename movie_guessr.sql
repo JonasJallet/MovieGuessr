@@ -7,7 +7,7 @@ id INT PRIMARY KEY AUTO_INCREMENT,
 movie_name VARCHAR(255) NOT NULL,
 movie_tag VARCHAR(100) NOT NULL,
 url TEXT NOT NULL,
-url_map TEXT NOT NULL
+url_map TEXT
 );
 
 INSERT INTO location (movie_name, movie_tag, url, url_map) VALUES
