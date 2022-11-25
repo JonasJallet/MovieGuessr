@@ -36,6 +36,10 @@ h1 {
     font-size: 42px;
 }
 
+.processImage {
+    width: 450px;
+}
+
 .showQuestions {
     background-color: rgba(0, 0, 0, 0.705);
     margin: auto;
