@@ -5,7 +5,6 @@ function updateText(overview, picture) {
 }
 
 
-
 fetch('/api/connect')
     .then(response => response.json())
     .then(connexion => {
@@ -20,6 +19,3 @@ fetch('/api/connect')
             )
             .catch(() => alert('error 2'))
     })
-
-
-

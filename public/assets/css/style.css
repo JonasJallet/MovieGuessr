@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;1,800&display=swap%27');
 
 body {
     font-weight: bold;
@@ -57,6 +57,13 @@ h1 {
     margin-top: 20px;
     margin-left: 20px;
     color: #000;
+    font-weight: 800;
+    font-style: italic;
+}
+
+.showQuestion:hover {
+    color: #29235C;
+    background-color: #fff;
 }
 
 .questionGuessr {
@@ -100,6 +107,10 @@ h1 {
     font-size: 17px;
     cursor: pointer;
     text-decoration: none;
+}
+
+.formQuestion {
+    min-width: 300px;
 }
 
 .popup-container {
@@ -164,4 +175,91 @@ h1 {
 
 label:focus {
     color: red;
+}
+
+.logoHome {
+    width: 40%;
+    min-width: 250px;
+}
+
+.logoHomeDiv {
+    margin-top: 10%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.textHome {
+    margin-top: 10px;
+    text-align: center;
+    color: #fff;
+    font-size: 20px;
+}
+
+.buttonHome {
+    margin-top: 40px;
+    background-color: #29235C;
+    color: #fff;
+    border-style: none;
+    font-weight: 800;
+    font-style: italic;
+}
+
+.buttonHome:hover {
+    color: #29235C;
+}
+
+.addTitle {
+    margin-top: 50px;
+    padding-top: 30px;
+    color: #fff;
+    font-weight: 800;
+    font-style: italic;
+    font-size: 50px;
+}
+
+.addMain {
+    background-image: url("/assets/images/index.jpg");
+    background-attachment: fixed;
+}
+
+.addForm {
+    background-color: rgba(0, 0, 0, 0.696);
+}
+
+.labelForm {
+    color: #fff;
+}
+
+.addMainTitle {
+    padding-top: 30px;
+    color: #fff;
+    font-weight: 800;
+    font-style: italic;
+    font-size: 50px;
+}
+
+.addProcess {
+    background-color: rgba(0, 0, 0, 0.696);
+    padding-bottom: 50px;
+}
+
+.addProcessTitle {
+    font-style: italic;
+    margin-top: 30px;
+}
+
+.buttonFormAdd {
+    background-color: #29235C;
+    color: #fff;
+    border-style: none;
+    font-weight: 800;
+    font-style: italic;
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+.buttonFormAdd:hover {
+    background-color: #fff;
+    color: #29235C;
 }
