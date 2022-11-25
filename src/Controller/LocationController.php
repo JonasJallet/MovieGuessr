@@ -3,12 +3,14 @@
 namespace App\Controller;
 
 use App\Model\LocationManager;
+use App\Service\Verification;
 
 class LocationController extends AbstractController
 {
     protected array $location;
     protected array $proposals;
 
+    // PAGE QUESTIONS
     public function questionsPage(): string
     {
         $locationChosen = $this->show();
@@ -49,34 +51,13 @@ class LocationController extends AbstractController
         return $proposals;
     }
 
+    // PAGE FORM
     public function addLocation(): string|null
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $data = array_map('trim', $_POST);
-
-            $errors = [];
-
-            if (!isset($data['movieName']) || empty($data['movieName'])) {
-                $errors[] = "The movie name is needed";
-            }
-            if (strlen($data['movieName']) > 255) {
-                $errors[] = 'The movie name must be less than 255 characters';
-            }
-            if (!isset($data['movieTag']) || empty($data['movieTag'])) {
-                $errors[] = "The movie tag is needed";
-            }
-            if (strlen($data['movieTag']) > 100) {
-                $errors[] = 'The movie tag must be less than 100 characters';
-            }
-            if (!isset($data['url']) || empty($data['url'])) {
-                $errors[] = "The url is needed";
-            }
-            if (strlen($data['url']) > 1000) {
-                $errors[] = 'The url must be less than 100 characters';
-            }
-            if (!empty($data['url']) && !filter_var($data['url'], FILTER_VALIDATE_URL)) {
-                $errors[] = 'The URL is not valid';
-            }
+            $verification = new Verification();
+            $errors = $verification->verification($data);
 
             if (!empty($errors)) {
                 return $this->twig->render('Location/addLocation.html.twig', ['errors' => $errors]);
@@ -91,6 +72,7 @@ class LocationController extends AbstractController
         return $this->twig->render('Location/addLocation.html.twig');
     }
 
+    // PAGE RESULT
     public function resultPage()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['answer'])) {
@@ -106,7 +88,8 @@ class LocationController extends AbstractController
     {
         if ($_POST['answer'] == $answer) {
             $_SESSION['correctAnswer'] = true;
+        } else {
+            $_SESSION['correctAnswer'] = false;
         }
-        $_SESSION['correctAnswer'] = false;
     }
 }
