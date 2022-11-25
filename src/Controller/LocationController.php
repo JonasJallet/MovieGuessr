@@ -3,15 +3,17 @@
 namespace App\Controller;
 
 use App\Model\LocationManager;
+use App\Service\Verification;
 
 class LocationController extends AbstractController
 {
     protected array $location;
     protected array $proposals;
 
+    // PAGE QUESTIONS
     public function questionsPage(): string
     {
-         $locationChosen = $this->show();
+        $locationChosen = $this->show();
         if ($locationChosen == false) {
             session_unset();
             $locationChosen = $this->show();
@@ -49,6 +51,28 @@ class LocationController extends AbstractController
         return $proposals;
     }
 
+    // PAGE FORM
+    public function addLocation(): string|null
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $data = array_map('trim', $_POST);
+            $verification = new Verification();
+            $errors = $verification->verification($data);
+
+            if (!empty($errors)) {
+                return $this->twig->render('Location/addLocation.html.twig', ['errors' => $errors]);
+            } else {
+                $locationManager = new LocationManager();
+                $locationManager->insert($data);
+                $thanks = "Thank you for your contribution";
+                return $this->twig->render('Location/addLocation.html.twig', ['thanks' => $thanks]);
+            }
+        }
+
+        return $this->twig->render('Location/addLocation.html.twig');
+    }
+
+    // PAGE RESULT
     public function resultPage()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['answer'])) {
@@ -64,7 +88,8 @@ class LocationController extends AbstractController
     {
         if ($_POST['answer'] == $answer) {
             $_SESSION['correctAnswer'] = true;
+        } else {
+            $_SESSION['correctAnswer'] = false;
         }
-        $_SESSION['correctAnswer'] = false;
     }
 }

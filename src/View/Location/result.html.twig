@@ -14,10 +14,12 @@
 								<a class="replay" href="/questions">Play Again</a>
 							</h3>
 						{% endif %}
-						<img class="poster" src="https://posters.waasabi.com/medias/158304668910.jpg" class="img-fluid rounded-start" alt="image artiste">
+						<img class="poster" id="image" src="https://posters.waasabi.com/medias/158304668910.jpg" class="img-fluid rounded-start" alt="image artiste">
 					</div>
 					<div class="card__face card__face--back col-12">
 						<h2>{{ location.movie_name }}</h2>
+						<p id="description"></p>
+						<p id="date"></p>
 					</div>
 				</div>
 			</div>
@@ -43,4 +45,7 @@
 
 	<script type="text/javascript" src="/assets/js/card_flip.js"></script>
 
+{% endblock %}
+{% block javascript %}
+	<script src="/assets/js/movies.js"></script>
 {% endblock %}

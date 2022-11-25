@@ -7,7 +7,7 @@ body {
 }
 
 .indexBackground {
-    background-image: url("/assets/images/index.png");
+    background-image: url("/assets/images/index.jpg");
     background-attachment: fixed;
     background-size: cover;
     background-position: center;
@@ -59,9 +59,11 @@ h3 {
     font-weight: 800;
 }
 
+.processImage {
+    width: 450px;
+}
+
 .showQuestions {
-    position: absolute;
-    z-index: 10;
     background-color: rgba(0, 0, 0, 0.705);
     margin: auto;
     padding: 20px;
@@ -73,6 +75,11 @@ h3 {
     position: absolute;
     z-index: 10;
     display: flex;
+    background-color: #29235C;
+    padding: 15px;
+    margin-top: 20px;
+    margin-left: 20px;
+    color: #000;
 }
 
 .questionGuessr {
@@ -92,21 +99,29 @@ h3 {
     margin-top: 50px;
 }
 
+.buttonAnswer {
+    font: 800 24px;
+    border: 2px solid #fff;
+    margin-top: 20px;
+    margin-right: 30px;
+    color: #000;
+    padding: 10px;
+}
+
 /* POP UP QUESTION */
 
 .popup-link {
-    display: flex;
+    margin-top: 10px;
+    position: absolute;
+    z-index: 10;
     flex-wrap: wrap;
 }
 
 .popup-link a {
-    background: #333;
     color: #fff;
-    padding: 10px 30px;
     border-radius: 5px;
     font-size: 17px;
     cursor: pointer;
-    margin: 20px;
     text-decoration: none;
 }
 
@@ -159,10 +174,6 @@ h3 {
     transform: scale(1);
 }
 
-.popup-container h3 {
-    margin: 10px;
-}
-
 /*End popup styles*/
 
 .popup-style-3 {
@@ -173,10 +184,6 @@ h3 {
 .popup-style-3:target {
     left: 0;
 }
-
-
-
-
 
 .scene {
     display: inline-block;
