@@ -34,4 +34,21 @@ class LocationManager extends AbstractManager
         ORDER BY RAND() LIMIT 3";
         return $this->pdo->query($query)->fetchAll();
     }
+
+    public function addLike(int $id): bool
+    {
+        $query = "UPDATE location SET liked = liked+1 WHERE id=:id";
+        $statement = $this->pdo->prepare($query);
+        $statement->bindValue('id', $id, PDO::PARAM_INT);
+
+        return $statement->execute();
+    }
+    public function addDislike(int $id): bool
+    {
+        $query = "UPDATE location SET disliked = disliked+1 WHERE id=:id";
+        $statement = $this->pdo->prepare($query);
+        $statement->bindValue('id', $id, PDO::PARAM_INT);
+
+        return $statement->execute();
+    }
 }

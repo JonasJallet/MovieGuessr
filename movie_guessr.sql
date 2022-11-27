@@ -7,7 +7,9 @@ id INT PRIMARY KEY AUTO_INCREMENT,
 movie_name VARCHAR(255) NOT NULL,
 movie_tag VARCHAR(100) NOT NULL,
 url TEXT NOT NULL,
-url_map TEXT
+url_map TEXT,
+liked INT DEFAULT 0,
+disliked INT DEFAULT 0
 );
 
 CREATE TABLE suggestion (

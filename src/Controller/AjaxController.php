@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Model\ArticleManager;
+use App\Model\LocationManager;
 
 class AjaxController extends AbstractController
 {
@@ -23,5 +23,19 @@ class AjaxController extends AbstractController
     {
         $movie = json_encode($_SESSION['currentLocation']);
         return $movie;
+    }
+
+    public function likeLocation(int $id)
+    {
+        $locationManager = new LocationManager();
+        $locationManager->addLike($id);
+        return json_encode('Liked !');
+    }
+
+    public function dislikeLocation(int $id)
+    {
+        $locationManager = new LocationManager();
+        $locationManager->addDislike($id);
+        return json_encode('Disliked !');
     }
 }
