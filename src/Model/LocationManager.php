@@ -10,7 +10,7 @@ class LocationManager extends AbstractManager
 
     public function insert(array $location): void
     {
-        $statement = $this->pdo->prepare("INSERT INTO " . self::TABLE . " (`movie_name`, `movie_tag`, `url`) 
+        $statement = $this->pdo->prepare("INSERT INTO suggestion (`movie_name`, `movie_tag`, `url`) 
         VALUES (:movie_name, :movie_tag, :url)");
         $statement->bindValue(':movie_name', $location['movieName'], PDO::PARAM_STR);
         $statement->bindValue(':movie_tag', $location['movieTag'], PDO::PARAM_STR);

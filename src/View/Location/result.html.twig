@@ -1,24 +1,21 @@
 {% extends "layout.html.twig" %}
 
 {% block content %}
-
 	<div class="moviecard row col-12 justify-content-center m-0">
 		<div class="row col-12 p-0 d-md-none">
 			<div class="scene scene--card justify-content-center flex-column p-0">
 				<div class="card col-12 border-0">
+					<a class="replay btnPlayAgain align-middle" href="/questions">Play Again</a>
 					<div class="card__face card__face--front col-12">
 						<p class="turnCard">></p>
 						{% if correctAnswer == true %}
 							<h3 class="text-success answerText">Correct answer !
-								<img id="image" class="poster img-fluid rounded-start">
-								<a class="replay btnPlayAgain" href="/questions">Play Again</a>
 							</h3>
 						{% else %}
 							<h3 class="text-danger answerText">False answer !
-								<img id="image" class="poster img-fluid rounded-start">
-								<a class="replay btnPlayAgain" href="/questions">Play Again</a>
 							</h3>
 						{% endif %}
+						<img id="image" class="poster img-fluid rounded-start">
 					</div>
 					<div class="card__face card__face--back col-12">
 						<h2 class="titleCard">{{ location.movie_name }}</h2>

@@ -77,11 +77,13 @@ class LocationController extends AbstractController
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['answer'])) {
             $this->checkAnswers($_SESSION['currentLocation']['movie_tag']);
+            return $this->twig->render('Location/result.html.twig', [
+                'location' => $_SESSION['currentLocation'],
+                'correctAnswer' => $_SESSION['correctAnswer']
+            ]);
+        } else {
+            header('Location: /');
         }
-        return $this->twig->render('Location/result.html.twig', [
-            'location' => $_SESSION['currentLocation'],
-            'correctAnswer' => $_SESSION['correctAnswer']
-        ]);
     }
 
     public function checkAnswers(string $answer): void
